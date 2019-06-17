@@ -13,7 +13,7 @@ from torch.optim import lr_scheduler
 from utils.train_util_DCL import train, trainlog
 from  torch.nn import CrossEntropyLoss
 import logging
-from models.resnet_swap_2loss_add import resnet_swap_2loss_add
+from resnet_swap_2loss_add import *
 
 cfg = {}
 time = datetime.datetime.now()
@@ -96,7 +96,7 @@ trainlog(logfile)
 
 print('Choose model and train set')
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-model = resnet_swap_2loss_add(num_classes=cfg['numcls'])
+model = resnet_swap_2loss_add.resnet_swap_2loss_add(num_classes=cfg['numcls'])
 base_lr = 0.0008
 resume = None
 if resume:
